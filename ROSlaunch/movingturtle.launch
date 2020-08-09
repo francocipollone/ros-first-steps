@@ -1,0 +1,25 @@
+
+<launch>
+
+  
+  <!-- Add the figure param to upload values from a file -->
+
+
+
+	<arg name="figure" default="$(find ros_first_steps)/figures/figure1.yaml" />
+	
+
+
+ 	<rosparam command="load" file="$(arg figure)"  />
+
+
+
+
+	<node pkg="turtlesim" name="turtle" type="turtlesim_node"/>
+
+  
+	<node pkg="ros_first_steps" name="movingturtle" type="move_turtle_node.py" output="screen"/>
+	<node pkg="rqt_reconfigure" name="rqt_reconfigure" type="rqt_reconfigure"/>
+
+
+</launch>
